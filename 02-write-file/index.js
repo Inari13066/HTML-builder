@@ -6,6 +6,7 @@ const readline = require('node:readline');
 const { stdin: input, stdout: output } = require('node:process');
 const rl = readline.createInterface({ input, output });
 
+//create empty file or make existing file empty
 fs.writeFile(path.resolve('./02-write-file/text.txt'), "", function (err) {
   if (err) {
      return console.error(err);
