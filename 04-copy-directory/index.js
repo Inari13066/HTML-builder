@@ -1,18 +1,12 @@
 const { mkdir, readdir } = require("node:fs/promises");
 const { copyFile } = require("node:fs/promises");
-const { exists, unlink } = require("node:fs");
+const { unlink } = require("node:fs");
 const { resolve, join } = require("node:path");
 
 async function makeDirectory() {
     const projectFolder = resolve(join(__dirname, "files-copy"));
-    // exists(projectFolder, (exists) => {
-    //     unlink(projectFolder, (err) => {
-    //         if (err) console.log(err);
-    //     });
-    // });
 
     const dirCreation = await mkdir(projectFolder, { recursive: true });
-
     //   console.log(dirCreation);
     return dirCreation;
 }
@@ -35,3 +29,4 @@ async function copyDirectory() {
 
 makeDirectory().catch(console.error);
 copyDirectory().catch(console.error);
+
